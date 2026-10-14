@@ -1,0 +1,35 @@
+# Tutorial dependencies for the differentiable-simulation notebooks.
+#
+# JAX is intentionally NOT listed here: install the wheel that matches your
+# hardware first, so that this file does not overwrite it.
+#
+#   CPU :  pip install --upgrade "jax[cpu]"
+#   GPU :  pip install --upgrade "jax[cuda12]"
+#
+# Then install the rest with:
+#
+#   pip install -r requirements.txt
+#
+# Reference environment used to produce the results in this repository:
+#   Python 3.13.13, jax / jaxlib 0.11.0, macOS (Apple Silicon, CPU backend).
+
+# Differentiable finite element solver (pulls in the JAX ecosystem)
+jax-fem>=0.0.12
+
+# Optimizers and nonlinear solvers used directly by the notebooks:
+#   optax.contrib.momo_adam  -> adaptive optimizer with a known lower loss bound
+#   optimistix.Newton        -> local Newton solve of the consistency equation
+optax>=0.2.4
+optimistix>=0.1.0
+
+# Mesh handling and scientific stack
+meshio>=5.3
+numpy>=1.26
+matplotlib>=3.8
+
+# Interactive 3D mesh preview inside the notebooks. The "jupyter" extra brings
+# in the trame stack required by plotter.show(jupyter_backend="html").
+pyvista[jupyter]>=0.44
+
+# Notebook front end
+jupyterlab>=4
